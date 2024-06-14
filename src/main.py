@@ -14,6 +14,12 @@ def app():
     title="Text I/O Example",
   )
 
+@me.page(path="/chat")
+def chat():
+  mel.chat(transform)
+
+def transform(prompt: str, history: list[mel.ChatMessage]) -> str:
+  return "Hello " + prompt
 
 def upper_case_stream(s: str):
   yield s.capitalize()
